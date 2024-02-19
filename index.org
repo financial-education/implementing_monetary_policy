@@ -4,3 +4,20 @@
 #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
 #+PROPERTY: header-args    :exports none
 
+* Measures of the Macroeconomy
+
+To implement monetary policy the FOMC must first know the present state of the economy.  To implement monetary policy well it also has to know how the economy will perform in the near future.  Therefore the first steps in the monetary policy process are to generate and understand reports on current economic conditions.   Many of the economic reports are done by district federal reserve banks on conditions within their region.  The main report is the [[https://www.federalreserve.gov/monetarypolicy/publications/beige-book-default.htm][Beige Book]].
+
+** Specific Macroeconomic Variables
+
+The Fed is specifically interested in economic growth (GDP), unemployment, and inflation.
+
+*** Unemployment
+
+Two often cited measures of unemployment are the unemployment rate, and the labor force participation rate.  The unemployment rate is cited more often, however it is the more /managed/ number.  For example, the long-term unemployed are excluded from the calculation.
+
+The labor force participation rate measures the proportion of the workforce that is employed at a given time.
+
+* Calculating the Correlation between the Fed Funds Rate and Inflation
+
+The first question to ask is, if the FOMC does it job well, what /should/ the correlation be?  
