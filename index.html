@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-10 Sat 22:02 -->
+<!-- 2024-02-22 Thu 10:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Implementing Monetary Policy</title>
@@ -20,11 +20,92 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Implementing Monetary Policy</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2281e21">1. Measures of the Macroeconomy</a>
+<ul>
+<li><a href="#org2a3517d">1.1. Specific Macroeconomic Variables</a>
+<ul>
+<li><a href="#org2c4a176">1.1.1. Unemployment</a></li>
+<li><a href="#org41ab3e4">1.1.2. Inflation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3c4737d">2. Calculating the Correlation between the Fed Funds Rate and Inflation</a></li>
+</ul>
+</div>
+</div>
 
+<div id="outline-container-org2281e21" class="outline-2">
+<h2 id="org2281e21"><span class="section-number-2">1.</span> Measures of the Macroeconomy</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+To implement monetary policy the FOMC must first know the present state of the economy.  To implement monetary policy well it also has to know how the economy will perform in the near future.  Therefore the first steps in the monetary policy process are to generate and understand reports on current economic conditions.   Many of the economic reports are done by district federal reserve banks on conditions within their region.  The main report is the <a href="https://www.federalreserve.gov/monetarypolicy/publications/beige-book-default.htm">Beige Book</a>.
+</p>
+</div>
+
+<div id="outline-container-org2a3517d" class="outline-3">
+<h3 id="org2a3517d"><span class="section-number-3">1.1.</span> Specific Macroeconomic Variables</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The Fed is specifically interested in economic growth (GDP), unemployment, and inflation.
+</p>
+</div>
+
+<div id="outline-container-org2c4a176" class="outline-4">
+<h4 id="org2c4a176"><span class="section-number-4">1.1.1.</span> Unemployment</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Two often cited measures of unemployment are the unemployment rate, and the labor force participation rate.  The unemployment rate is cited more often, however it is the more <i>managed</i> number.  For example, the long-term unemployed are excluded from the calculation.  The labor force participation rate measures the proportion of the workforce that is employed at a given time, and is less subject to manipulation.
+</p>
+
+<p>
+For example, the FRED website notes about the Labor Force Participation Rate.  The unemployment rate is managed such that "secular increase of exits from the labor force" have no effect.
+</p>
+
+<blockquote>
+<p>
+demographic changes such as the aging of population can lead to a secular increase of exits from the labor force, shrinking the labor force and decreasing the labor force participation rate
+</p>
+</blockquote>
+
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1glfr&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+
+
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1fn5Y&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+</div>
+</div>
+
+<div id="outline-container-org41ab3e4" class="outline-4">
+<h4 id="org41ab3e4"><span class="section-number-4">1.1.2.</span> Inflation</h4>
+<div class="outline-text-4" id="text-1-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgf51ae9a"></a>Producer Price Index<br /></li>
+
+<li><a id="org0eac791"></a>Consumer Price Index<br /></li>
+
+<li><a id="org6dcc2dd"></a>GDP Deflator<br /></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3c4737d" class="outline-2">
+<h2 id="org3c4737d"><span class="section-number-2">2.</span> Calculating the Correlation between the Fed Funds Rate and Inflation</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The first question to ask is, if the FOMC does it job well, what <i>should</i> the correlation be?  
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2024-02-10 Sat 22:02</p>
+<p class="date">Created: 2024-02-22 Thu 10:34</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

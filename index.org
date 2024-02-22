@@ -14,9 +14,31 @@ The Fed is specifically interested in economic growth (GDP), unemployment, and i
 
 *** Unemployment
 
-Two often cited measures of unemployment are the unemployment rate, and the labor force participation rate.  The unemployment rate is cited more often, however it is the more /managed/ number.  For example, the long-term unemployed are excluded from the calculation.
+Two often cited measures of unemployment are the unemployment rate, and the labor force participation rate.  The unemployment rate is cited more often, however it is the more /managed/ number.  For example, the long-term unemployed are excluded from the calculation.  The labor force participation rate measures the proportion of the workforce that is employed at a given time, and is less subject to manipulation.
 
-The labor force participation rate measures the proportion of the workforce that is employed at a given time.
+For example, the FRED website notes about the Labor Force Participation Rate.  The unemployment rate is managed such that "secular increase of exits from the labor force" have no effect.
+
+#+begin_quote
+demographic changes such as the aging of population can lead to a secular increase of exits from the labor force, shrinking the labor force and decreasing the labor force participation rate
+#+end_quote
+
+#+caption: Labor Force Participation Rate
+#+begin_export html
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1glfr&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+#+end_export
+
+
+#+begin_export html
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1fn5Y&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+#+end_export
+
+*** Inflation
+
+**** Producer Price Index
+
+**** Consumer Price Index
+
+**** GDP Deflator
 
 * Calculating the Correlation between the Fed Funds Rate and Inflation
 
