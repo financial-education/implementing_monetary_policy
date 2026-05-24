@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-05-23 Sat 20:02 -->
+<!-- 2026-05-23 Sat 20:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Implementing Monetary Policy</title>
@@ -253,69 +253,69 @@ $(function() {    $('.note').before("<p class='admonition-title note'>Note</p>")
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org404a580">1. Measures of the Macroeconomy</a>
+<li><a href="#orgc25c0e0">1. Measures of the Macroeconomy</a>
 <ul>
-<li><a href="#org5740e83">1.1. Specific Macroeconomic Variables</a>
+<li><a href="#org9e208e0">1.1. Specific Macroeconomic Variables</a>
 <ul>
-<li><a href="#org5d7a5b1">1.1.1. Unemployment</a></li>
-<li><a href="#org9a51b9e">1.1.2. Inflation</a></li>
-<li><a href="#orgecd2fda">1.1.3. GDP Growth</a></li>
+<li><a href="#orga70a72a">1.1.1. Unemployment</a></li>
+<li><a href="#org584038c">1.1.2. Inflation</a></li>
+<li><a href="#orga131488">1.1.3. GDP Growth</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org5efebfd">2. The Fed's Dual Mandate</a></li>
-<li><a href="#org1f20fbd">3. The Federal Funds Rate</a>
+<li><a href="#org4936906">2. The Fed's Dual Mandate</a></li>
+<li><a href="#org0ddd0e7">3. The Federal Funds Rate</a>
 <ul>
-<li><a href="#orgf265e0e">3.1. Target vs. Effective Rate</a></li>
-<li><a href="#org3d6e1d5">3.2. How the Fed Controls the Rate</a></li>
+<li><a href="#org076c9c3">3.1. Target vs. Effective Rate</a></li>
+<li><a href="#org53ed08b">3.2. How the Fed Controls the Rate</a></li>
 </ul>
 </li>
-<li><a href="#orge0a7dc0">4. Tools of Monetary Policy</a>
+<li><a href="#org05e1daf">4. Tools of Monetary Policy</a>
 <ul>
-<li><a href="#orge7c8b98">4.1. Open Market Operations</a>
+<li><a href="#org2912ea2">4.1. Open Market Operations</a>
 <ul>
-<li><a href="#orgce6a21f">4.1.1. Effect of OMO on the Money Supply</a></li>
-<li><a href="#orgba8bd6d">4.1.2. Unsterilized vs. Sterilized OMO</a></li>
+<li><a href="#org5d8113e">4.1.1. Effect of OMO on the Money Supply</a></li>
+<li><a href="#orgc52d4ae">4.1.2. Unsterilized vs. Sterilized OMO</a></li>
 </ul>
 </li>
-<li><a href="#org5c16294">4.2. The Discount Rate</a></li>
-<li><a href="#org9fba024">4.3. Reserve Requirements</a></li>
-<li><a href="#orgf77875b">4.4. Interest on Reserve Balances</a></li>
+<li><a href="#org4260670">4.2. The Discount Rate</a></li>
+<li><a href="#orgf60d5da">4.3. Reserve Requirements</a></li>
+<li><a href="#orgd5f2aa9">4.4. Interest on Reserve Balances</a></li>
 </ul>
 </li>
-<li><a href="#orgc75dc05">5. The Taylor Rule</a></li>
-<li><a href="#orga276c12">6. Calculating the Correlation between the Fed Funds Rate and Inflation</a>
+<li><a href="#org36802d9">5. The Taylor Rule</a></li>
+<li><a href="#org82eba56">6. Calculating the Correlation between the Fed Funds Rate and Inflation</a>
 <ul>
-<li><a href="#org00b81ed">6.1. Empirical Exercise</a></li>
+<li><a href="#org2a2cebd">6.1. Empirical Exercise</a></li>
 </ul>
 </li>
-<li><a href="#org6d0de99">7. Quantitative Easing and Unconventional Monetary Policy</a>
+<li><a href="#orge0ea083">7. Quantitative Easing and Unconventional Monetary Policy</a>
 <ul>
-<li><a href="#org227cf49">7.1. Quantitative Easing</a></li>
-<li><a href="#orgba004da">7.2. Forward Guidance</a></li>
-<li><a href="#org29bf49c">7.3. Quantitative Tightening</a></li>
+<li><a href="#org23b8cd0">7.1. Quantitative Easing</a></li>
+<li><a href="#org798a959">7.2. Forward Guidance</a></li>
+<li><a href="#orgd8f5228">7.3. Quantitative Tightening</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org404a580" class="outline-2">
-<h2 id="org404a580"><span class="section-number-2">1.</span> Measures of the Macroeconomy</h2>
+<div id="outline-container-orgc25c0e0" class="outline-2">
+<h2 id="orgc25c0e0"><span class="section-number-2">1.</span> Measures of the Macroeconomy</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 To implement monetary policy the FOMC must first know the present state of the economy.  To implement monetary policy well it also has to know how the economy will perform in the near future.  Therefore the first steps in the monetary policy process are to generate and understand reports on current economic conditions.   Many of the economic reports are done by district federal reserve banks on conditions within their region.  The main report is the <a href="https://www.federalreserve.gov/monetarypolicy/publications/beige-book-default.htm">Beige Book</a>.
 </p>
 </div>
-<div id="outline-container-org5740e83" class="outline-3">
-<h3 id="org5740e83"><span class="section-number-3">1.1.</span> Specific Macroeconomic Variables</h3>
+<div id="outline-container-org9e208e0" class="outline-3">
+<h3 id="org9e208e0"><span class="section-number-3">1.1.</span> Specific Macroeconomic Variables</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The Fed is specifically interested in economic growth (GDP), unemployment, and inflation.
 </p>
 </div>
-<div id="outline-container-org5d7a5b1" class="outline-4">
-<h4 id="org5d7a5b1"><span class="section-number-4">1.1.1.</span> Unemployment</h4>
+<div id="outline-container-orga70a72a" class="outline-4">
+<h4 id="orga70a72a"><span class="section-number-4">1.1.1.</span> Unemployment</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Two often cited measures of unemployment are the unemployment rate, and the labor force participation rate.  The unemployment rate is cited more often, however it is the more <i>managed</i> number.  For example, the long-term unemployed are excluded from the calculation.  The labor force participation rate measures the proportion of the workforce that is employed at a given time, and is less subject to manipulation.
@@ -337,8 +337,8 @@ demographic changes such as the aging of population can lead to a secular increa
 <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1fn5Y&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
 </div>
 </div>
-<div id="outline-container-org9a51b9e" class="outline-4">
-<h4 id="org9a51b9e"><span class="section-number-4">1.1.2.</span> Inflation</h4>
+<div id="outline-container-org584038c" class="outline-4">
+<h4 id="org584038c"><span class="section-number-4">1.1.2.</span> Inflation</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 Inflation measures the rate at which the general level of prices for goods and services rises, and consequently the rate at which the purchasing power of currency falls.  The FOMC has set an explicit inflation target of 2% per year, measured by the Personal Consumption Expenditures (PCE) price index.
@@ -349,7 +349,7 @@ There are several distinct price indexes, each capturing a different slice of th
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgdf2ac5e"></a>Producer Price Index<br />
+<li><a id="orgffce640"></a>Producer Price Index<br />
 <div class="outline-text-5" id="text-1-1-2-1">
 <p>
 The Producer Price Index (PPI) is published monthly by the Bureau of Labor Statistics (BLS) and measures the average change over time in the selling prices received by domestic producers for their output.  Unlike the CPI, the PPI measures prices from the <i>seller's</i> perspective.
@@ -369,7 +369,7 @@ Because the PPI captures price changes earlier in the production chain, it is of
 </p>
 </div>
 </li>
-<li><a id="orgb5ffaa6"></a>Consumer Price Index<br />
+<li><a id="orga010cb9"></a>Consumer Price Index<br />
 <div class="outline-text-5" id="text-1-1-2-2">
 <p>
 The Consumer Price Index (CPI) is the most widely cited measure of inflation.  Published monthly by the BLS, the CPI measures the average change over time in the prices paid by urban consumers for a representative basket of goods and services.  The basket covers food, housing, apparel, transportation, medical care, recreation, and education.
@@ -388,7 +388,7 @@ The CPI is used to adjust Social Security benefits, federal income tax brackets,
 </p>
 </div>
 </li>
-<li><a id="org3e93205"></a>GDP Deflator<br />
+<li><a id="org93ec13f"></a>GDP Deflator<br />
 <div class="outline-text-5" id="text-1-1-2-3">
 <p>
 The GDP Deflator is the broadest inflation measure, covering all domestically produced goods and services.  Unlike the CPI, it is not based on a fixed basket — it updates continuously to reflect actual spending patterns (a chain-weighted index), so it avoids the substitution bias inherent in fixed-basket indexes.
@@ -409,8 +409,8 @@ It is published quarterly by the Bureau of Economic Analysis (BEA) alongside the
 </li>
 </ol>
 </div>
-<div id="outline-container-orgecd2fda" class="outline-4">
-<h4 id="orgecd2fda"><span class="section-number-4">1.1.3.</span> GDP Growth</h4>
+<div id="outline-container-orga131488" class="outline-4">
+<h4 id="orga131488"><span class="section-number-4">1.1.3.</span> GDP Growth</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 The third key variable the FOMC monitors is real GDP growth.  The Fed has no explicit GDP target, but strong growth reduces unemployment (via Okun's Law: roughly every 1 percentage-point increase in unemployment is associated with a 2% decline in output relative to potential) and can put upward pressure on inflation.  Weak growth signals a need for stimulus.
@@ -423,8 +423,8 @@ GDP is measured quarterly by the BEA and subject to three rounds of revision (ad
 </div>
 </div>
 </div>
-<div id="outline-container-org5efebfd" class="outline-2">
-<h2 id="org5efebfd"><span class="section-number-2">2.</span> The Fed's Dual Mandate</h2>
+<div id="outline-container-org4936906" class="outline-2">
+<h2 id="org4936906"><span class="section-number-2">2.</span> The Fed's Dual Mandate</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The Federal Reserve Act directs the FOMC to "promote effectively the goals of <b>maximum employment</b>, <b>stable prices</b>, and <b>moderate long-term interest rates</b>."  In practice this is called the <b>dual mandate</b>: maximum employment and price stability.
@@ -445,15 +445,15 @@ These goals can conflict.  When the economy runs very hot, unemployment can fall
 </p>
 </div>
 </div>
-<div id="outline-container-org1f20fbd" class="outline-2">
-<h2 id="org1f20fbd"><span class="section-number-2">3.</span> The Federal Funds Rate</h2>
+<div id="outline-container-org0ddd0e7" class="outline-2">
+<h2 id="org0ddd0e7"><span class="section-number-2">3.</span> The Federal Funds Rate</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The primary tool of monetary policy is the <b>federal funds rate</b> — the interest rate at which depository institutions lend reserve balances to one another on an overnight, uncollateralized basis in the federal funds market.
 </p>
 </div>
-<div id="outline-container-orgf265e0e" class="outline-3">
-<h3 id="orgf265e0e"><span class="section-number-3">3.1.</span> Target vs. Effective Rate</h3>
+<div id="outline-container-org076c9c3" class="outline-3">
+<h3 id="org076c9c3"><span class="section-number-3">3.1.</span> Target vs. Effective Rate</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 The FOMC does not set the federal funds rate directly in a legal sense.  Instead it votes to set a <b>target range</b> (e.g., 5.25% to 5.50%) and then uses its operational tools to keep the actual market rate within that band.
@@ -465,8 +465,8 @@ The FOMC does not set the federal funds rate directly in a legal sense.  Instead
 </ul>
 </div>
 </div>
-<div id="outline-container-org3d6e1d5" class="outline-3">
-<h3 id="org3d6e1d5"><span class="section-number-3">3.2.</span> How the Fed Controls the Rate</h3>
+<div id="outline-container-org53ed08b" class="outline-3">
+<h3 id="org53ed08b"><span class="section-number-3">3.2.</span> How the Fed Controls the Rate</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Before the 2008 financial crisis the Fed managed the federal funds rate by fine-tuning the supply of reserves through daily open market operations.  After the crisis, with reserves vastly more abundant, the Fed adopted a <b>floor system</b> relying on two administered rates:
@@ -484,12 +484,12 @@ Together IORB and ON RRP create a corridor that allows the Fed to control short-
 </div>
 </div>
 </div>
-<div id="outline-container-orge0a7dc0" class="outline-2">
-<h2 id="orge0a7dc0"><span class="section-number-2">4.</span> Tools of Monetary Policy</h2>
+<div id="outline-container-org05e1daf" class="outline-2">
+<h2 id="org05e1daf"><span class="section-number-2">4.</span> Tools of Monetary Policy</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orge7c8b98" class="outline-3">
-<h3 id="orge7c8b98"><span class="section-number-3">4.1.</span> Open Market Operations</h3>
+<div id="outline-container-org2912ea2" class="outline-3">
+<h3 id="org2912ea2"><span class="section-number-3">4.1.</span> Open Market Operations</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Open market operations (OMOs) are the purchase or sale of U.S. Treasury and agency securities by the Fed in the secondary market, executed by the Open Market Desk at the Federal Reserve Bank of New York.
@@ -504,8 +504,8 @@ Open market operations (OMOs) are the purchase or sale of U.S. Treasury and agen
 In the current floor system, large-scale OMOs are mainly used for <b>quantitative easing</b> (see below) rather than day-to-day rate management.
 </p>
 </div>
-<div id="outline-container-orgce6a21f" class="outline-4">
-<h4 id="orgce6a21f"><span class="section-number-4">4.1.1.</span> Effect of OMO on the Money Supply</h4>
+<div id="outline-container-org5d8113e" class="outline-4">
+<h4 id="org5d8113e"><span class="section-number-4">4.1.1.</span> Effect of OMO on the Money Supply</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 When the Fed buys securities from a bank, it credits that bank's reserve account at the Fed.  The bank now holds more reserves than required — <i>excess reserves</i> — and has an incentive to put those funds to work by making new loans.  Each new loan creates a new deposit, which in turn can be loaned out again.  This chain of lending and re-deposit is captured by the <b>money multiplier</b>:
@@ -533,15 +533,15 @@ An expansionary OMO increases M0 directly; M1 and M2 expand through the lending-
 </p>
 </div>
 </div>
-<div id="outline-container-orgba8bd6d" class="outline-4">
-<h4 id="orgba8bd6d"><span class="section-number-4">4.1.2.</span> Unsterilized vs. Sterilized OMO</h4>
+<div id="outline-container-orgc52d4ae" class="outline-4">
+<h4 id="orgc52d4ae"><span class="section-number-4">4.1.2.</span> Unsterilized vs. Sterilized OMO</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 A standard OMO is <i>unsterilized</i> — it changes the size of the Fed's balance sheet and the monetary base, with the intent of affecting the money supply.  But the Fed can also conduct operations specifically designed to affect interest rates or the composition of its portfolio <i>without</i> expanding the money supply.  This is called a <b>sterilized</b> operation.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgd007f70"></a>How to Sterilize an OMO<br />
+<li><a id="org2c9c10a"></a>How to Sterilize an OMO<br />
 <div class="outline-text-5" id="text-4-1-2-1">
 <p>
 The basic idea is to offset one transaction with another that has the opposite effect on reserves:
@@ -556,7 +556,7 @@ The basic idea is to offset one transaction with another that has the opposite e
 </ul>
 </div>
 </li>
-<li><a id="orge32f238"></a>Why Sterilization May Not Work<br />
+<li><a id="orgee07457"></a>Why Sterilization May Not Work<br />
 <div class="outline-text-5" id="text-4-1-2-2">
 <p>
 Even a well-designed sterilized operation faces limits:
@@ -578,8 +578,8 @@ Even a well-designed sterilized operation faces limits:
 </ol>
 </div>
 </div>
-<div id="outline-container-org5c16294" class="outline-3">
-<h3 id="org5c16294"><span class="section-number-3">4.2.</span> The Discount Rate</h3>
+<div id="outline-container-org4260670" class="outline-3">
+<h3 id="org4260670"><span class="section-number-3">4.2.</span> The Discount Rate</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 The <b>discount rate</b> is the interest rate at which eligible depository institutions can borrow directly from the Fed through the <b>discount window</b>.  Three tiers exist:
@@ -596,8 +596,8 @@ Because the primary credit rate is above the federal funds target and because di
 </p>
 </div>
 </div>
-<div id="outline-container-org9fba024" class="outline-3">
-<h3 id="org9fba024"><span class="section-number-3">4.3.</span> Reserve Requirements</h3>
+<div id="outline-container-orgf60d5da" class="outline-3">
+<h3 id="orgf60d5da"><span class="section-number-3">4.3.</span> Reserve Requirements</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Reserve requirements specify the minimum fraction of deposits that banks must hold as reserves.  In March 2020 the Fed permanently reduced reserve requirements to <b>zero</b> for all depository institutions.
@@ -608,8 +608,8 @@ Although reserve requirements no longer bind as an active policy instrument, the
 </p>
 </div>
 </div>
-<div id="outline-container-orgf77875b" class="outline-3">
-<h3 id="orgf77875b"><span class="section-number-3">4.4.</span> Interest on Reserve Balances</h3>
+<div id="outline-container-orgd5f2aa9" class="outline-3">
+<h3 id="orgd5f2aa9"><span class="section-number-3">4.4.</span> Interest on Reserve Balances</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 As discussed above, IORB is now the Fed's primary rate-control mechanism.  The FOMC sets the IORB rate in tandem with the federal funds target range to ensure money market rates remain well within the target band.
@@ -617,8 +617,8 @@ As discussed above, IORB is now the Fed's primary rate-control mechanism.  The F
 </div>
 </div>
 </div>
-<div id="outline-container-orgc75dc05" class="outline-2">
-<h2 id="orgc75dc05"><span class="section-number-2">5.</span> The Taylor Rule</h2>
+<div id="outline-container-org36802d9" class="outline-2">
+<h2 id="org36802d9"><span class="section-number-2">5.</span> The Taylor Rule</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The <b>Taylor Rule</b>, introduced by Stanford economist John Taylor in 1993, gives a simple prescription for the federal funds rate based on observable economic conditions:
@@ -656,8 +656,8 @@ The Taylor Rule has been influential as a <b>benchmark</b> for policy evaluation
 </p>
 </div>
 </div>
-<div id="outline-container-orga276c12" class="outline-2">
-<h2 id="orga276c12"><span class="section-number-2">6.</span> Calculating the Correlation between the Fed Funds Rate and Inflation</h2>
+<div id="outline-container-org82eba56" class="outline-2">
+<h2 id="org82eba56"><span class="section-number-2">6.</span> Calculating the Correlation between the Fed Funds Rate and Inflation</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The first question to ask is, if the FOMC does its job well, what <i>should</i> the correlation be?
@@ -675,8 +675,8 @@ If the FOMC is <b>preemptive</b> — raising rates in anticipation of future inf
 There is also a <b>success paradox</b>: a perfectly credible central bank that always hits its inflation target would generate data in which inflation barely varies, making the correlation between the fed funds rate and inflation appear small — not because policy is irrelevant but because it works so well.
 </p>
 </div>
-<div id="outline-container-org00b81ed" class="outline-3">
-<h3 id="org00b81ed"><span class="section-number-3">6.1.</span> Empirical Exercise</h3>
+<div id="outline-container-org2a2cebd" class="outline-3">
+<h3 id="org2a2cebd"><span class="section-number-3">6.1.</span> Empirical Exercise</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Download the following FRED series and compute correlations:
@@ -704,15 +704,15 @@ Plotting these correlations against the lag \(k\) produces a <b>cross-correlogra
 </div>
 </div>
 </div>
-<div id="outline-container-org6d0de99" class="outline-2">
-<h2 id="org6d0de99"><span class="section-number-2">7.</span> Quantitative Easing and Unconventional Monetary Policy</h2>
+<div id="outline-container-orge0ea083" class="outline-2">
+<h2 id="orge0ea083"><span class="section-number-2">7.</span> Quantitative Easing and Unconventional Monetary Policy</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 When the federal funds rate reaches zero — the <b>zero lower bound</b> (ZLB) — the FOMC loses its primary conventional tool.  Standard rate cuts are no longer possible.  The Fed has responded with several unconventional tools.
 </p>
 </div>
-<div id="outline-container-org227cf49" class="outline-3">
-<h3 id="org227cf49"><span class="section-number-3">7.1.</span> Quantitative Easing</h3>
+<div id="outline-container-org23b8cd0" class="outline-3">
+<h3 id="org23b8cd0"><span class="section-number-3">7.1.</span> Quantitative Easing</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 <b>Quantitative easing</b> (QE) involves large-scale purchases of longer-maturity securities — U.S. Treasuries and agency mortgage-backed securities — to push down long-term interest rates.  Whereas conventional OMOs target the overnight rate, QE aims to shift the entire yield curve downward by reducing the term premium on longer-dated bonds.
@@ -731,8 +731,8 @@ At its peak in 2022, the Fed's balance sheet exceeded $9 trillion — up from ro
 </p>
 </div>
 </div>
-<div id="outline-container-orgba004da" class="outline-3">
-<h3 id="orgba004da"><span class="section-number-3">7.2.</span> Forward Guidance</h3>
+<div id="outline-container-org798a959" class="outline-3">
+<h3 id="org798a959"><span class="section-number-3">7.2.</span> Forward Guidance</h3>
 <div class="outline-text-3" id="text-7-2">
 <p>
 <b>Forward guidance</b> is the FOMC's use of public communication to shape expectations about the future path of the federal funds rate.  Because long-term interest rates reflect expected future short-term rates, committing credibly to keep rates low for an extended period pushes down longer-term rates today without any change in the current policy rate.
@@ -751,8 +751,8 @@ State-contingent guidance is generally considered more credible because the comm
 </p>
 </div>
 </div>
-<div id="outline-container-org29bf49c" class="outline-3">
-<h3 id="org29bf49c"><span class="section-number-3">7.3.</span> Quantitative Tightening</h3>
+<div id="outline-container-orgd8f5228" class="outline-3">
+<h3 id="orgd8f5228"><span class="section-number-3">7.3.</span> Quantitative Tightening</h3>
 <div class="outline-text-3" id="text-7-3">
 <p>
 The reverse of QE, <b>quantitative tightening</b> (QT) reduces the size of the Fed's balance sheet.  This can be done passively — by allowing maturing securities to roll off without reinvestment — or actively by selling securities outright.
@@ -767,7 +767,7 @@ The Fed conducted QT in 2017–2019, then began a new round in June 2022 as it s
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2026-05-23 Sat 20:02</p>
+<p class="date">Created: 2026-05-23 Sat 20:03</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
