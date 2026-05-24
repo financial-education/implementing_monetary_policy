@@ -1,6 +1,6 @@
 #+title: Implementing Monetary Policy
 #+author: Matt Brigida, Ph.D.
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: ~/.emacs.d/org-themes/src/readtheorg_inline/readtheorg_inline.theme
 #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
 #+PROPERTY: header-args    :exports none
 
@@ -34,12 +34,225 @@ demographic changes such as the aging of population can lead to a secular increa
 
 *** Inflation
 
+Inflation measures the rate at which the general level of prices for goods and services rises, and consequently the rate at which the purchasing power of currency falls.  The FOMC has set an explicit inflation target of 2% per year, measured by the Personal Consumption Expenditures (PCE) price index.
+
+There are several distinct price indexes, each capturing a different slice of the economy.  The Fed monitors all of them but relies primarily on PCE for its official target.
+
 **** Producer Price Index
+
+The Producer Price Index (PPI) is published monthly by the Bureau of Labor Statistics (BLS) and measures the average change over time in the selling prices received by domestic producers for their output.  Unlike the CPI, the PPI measures prices from the /seller's/ perspective.
+
+The PPI is organized by production stage:
+- *Crude goods*: raw materials to be processed further (e.g., iron ore, crude petroleum)
+- *Intermediate goods*: partly processed inputs (e.g., lumber, chemicals)
+- *Finished goods*: goods ready for sale to end users (e.g., passenger cars, food products)
+
+Because the PPI captures price changes earlier in the production chain, it is often viewed as a /leading indicator/ of consumer price inflation.  When producers face higher input costs, those costs are typically passed on to consumers over subsequent months.
 
 **** Consumer Price Index
 
+The Consumer Price Index (CPI) is the most widely cited measure of inflation.  Published monthly by the BLS, the CPI measures the average change over time in the prices paid by urban consumers for a representative basket of goods and services.  The basket covers food, housing, apparel, transportation, medical care, recreation, and education.
+
+Two important variants:
+- *CPI-U*: Covers all urban consumers, roughly 93% of the U.S. population.
+- *Core CPI*: Excludes food and energy, which are more volatile.  Policymakers often focus on core CPI to identify underlying inflation trends that are less distorted by short-run commodity swings.
+
+The CPI is used to adjust Social Security benefits, federal income tax brackets, and cost-of-living clauses in many contracts.  While the Fed closely watches CPI, its /official/ inflation target is based on the PCE price index, which tends to run about 0.3–0.4 percentage points below CPI because of differences in the weighting of medical care and housing.
+
 **** GDP Deflator
+
+The GDP Deflator is the broadest inflation measure, covering all domestically produced goods and services.  Unlike the CPI, it is not based on a fixed basket — it updates continuously to reflect actual spending patterns (a chain-weighted index), so it avoids the substitution bias inherent in fixed-basket indexes.
+
+The deflator is used to convert nominal GDP to real GDP:
+
+\[ \text{Real GDP} = \frac{\text{Nominal GDP}}{\text{GDP Deflator}} \times 100 \]
+
+It is published quarterly by the Bureau of Economic Analysis (BEA) alongside the GDP release.
+
+*** GDP Growth
+
+The third key variable the FOMC monitors is real GDP growth.  The Fed has no explicit GDP target, but strong growth reduces unemployment (via Okun's Law: roughly every 1 percentage-point increase in unemployment is associated with a 2% decline in output relative to potential) and can put upward pressure on inflation.  Weak growth signals a need for stimulus.
+
+GDP is measured quarterly by the BEA and subject to three rounds of revision (advance, second, and third estimates) before a final benchmark revision.
+
+* The Fed's Dual Mandate
+
+The Federal Reserve Act directs the FOMC to "promote effectively the goals of *maximum employment*, *stable prices*, and *moderate long-term interest rates*."  In practice this is called the *dual mandate*: maximum employment and price stability.
+
+The FOMC has given more precise meaning to each goal:
+
+- *Price Stability*: 2% annual inflation as measured by the PCE price index.  Since 2020 the Fed has operated under *Average Inflation Targeting (AIT)*, which allows inflation to run modestly above 2% for a time following periods of persistent below-target inflation.  The idea is to anchor long-run inflation expectations at 2% rather than allowing a deflationary bias to build up.
+
+- *Maximum Employment*: The Fed does not set a specific numerical unemployment target.  Instead it assesses a broad range of labor market indicators — payroll growth, wage growth, labor force participation, the employment-to-population ratio — and judges whether the labor market is at maximum sustainable employment.
+
+These goals can conflict.  When the economy runs very hot, unemployment can fall below its long-run sustainable level and generate inflationary wage-price spirals.  The FOMC must weigh both sides of its mandate when setting policy, which is why monetary policy decisions often involve genuine disagreement among FOMC members.
+
+* The Federal Funds Rate
+
+The primary tool of monetary policy is the *federal funds rate* — the interest rate at which depository institutions lend reserve balances to one another on an overnight, uncollateralized basis in the federal funds market.
+
+** Target vs. Effective Rate
+
+The FOMC does not set the federal funds rate directly in a legal sense.  Instead it votes to set a *target range* (e.g., 5.25% to 5.50%) and then uses its operational tools to keep the actual market rate within that band.
+
+- *Federal Funds Target Rate*: The range announced after each FOMC meeting, with an upper and lower bound.
+- *Effective Federal Funds Rate (EFFR)*: The volume-weighted median of actual overnight federal funds transactions, published daily by the New York Fed.  This is the rate that appears in FRED series =FEDFUNDS=.
+
+** How the Fed Controls the Rate
+
+Before the 2008 financial crisis the Fed managed the federal funds rate by fine-tuning the supply of reserves through daily open market operations.  After the crisis, with reserves vastly more abundant, the Fed adopted a *floor system* relying on two administered rates:
+
+- *Interest on Reserve Balances (IORB)*: The Fed pays interest on all reserves held by banks at Federal Reserve Banks.  No bank will lend overnight at a rate below what it can earn by simply leaving funds at the Fed, so IORB sets an effective floor under the federal funds rate.
+
+- *Overnight Reverse Repurchase Agreement (ON RRP) Facility*: Non-bank money market participants (e.g., money market mutual funds) can invest overnight at the Fed's ON RRP rate.  This extends the floor to institutions that do not have reserve accounts, preventing rates from falling below the ON RRP rate.
+
+Together IORB and ON RRP create a corridor that allows the Fed to control short-term rates with abundant reserves and without the daily fine-tuning of the pre-crisis era.
+
+* Tools of Monetary Policy
+
+** Open Market Operations
+
+Open market operations (OMOs) are the purchase or sale of U.S. Treasury and agency securities by the Fed in the secondary market, executed by the Open Market Desk at the Federal Reserve Bank of New York.
+
+- *Expansionary OMO*: The Fed /buys/ securities, crediting seller banks with reserves.  More reserves push the federal funds rate down.
+- *Contractionary OMO*: The Fed /sells/ securities, debiting buyer banks' reserve accounts.  Fewer reserves push the federal funds rate up.
+
+In the current floor system, large-scale OMOs are mainly used for *quantitative easing* (see below) rather than day-to-day rate management.
+
+*** Effect of OMO on the Money Supply
+
+When the Fed buys securities from a bank, it credits that bank's reserve account at the Fed.  The bank now holds more reserves than required — /excess reserves/ — and has an incentive to put those funds to work by making new loans.  Each new loan creates a new deposit, which in turn can be loaned out again.  This chain of lending and re-deposit is captured by the *money multiplier*:
+
+\[ \Delta M = \frac{1}{rr} \times \Delta \text{Reserves} \]
+
+where $rr$ is the reserve ratio (required reserves as a fraction of deposits).  For example, if the reserve ratio is 10%, a $1 billion open market purchase could, in the textbook model, expand the broad money supply by up to $10 billion.
+
+The direct effect of an OMO is on the *monetary base* (M0: currency in circulation plus bank reserves at the Fed).  The multiplier then transmits that change to broader aggregates:
+
+- *M1*: Currency in circulation + demand deposits + other checkable deposits
+- *M2*: M1 + savings deposits + small time deposits + retail money market funds
+
+An expansionary OMO increases M0 directly; M1 and M2 expand through the lending-and-deposit-creation process.
+
+*** Unsterilized vs. Sterilized OMO
+
+A standard OMO is /unsterilized/ — it changes the size of the Fed's balance sheet and the monetary base, with the intent of affecting the money supply.  But the Fed can also conduct operations specifically designed to affect interest rates or the composition of its portfolio /without/ expanding the money supply.  This is called a *sterilized* operation.
+
+**** How to Sterilize an OMO
+
+The basic idea is to offset one transaction with another that has the opposite effect on reserves:
+
+- *Buy long, sell short (Operation Twist)*: The Fed purchases long-term Treasuries while simultaneously selling an equal value of short-term Treasuries.  Reserves flow out (short-term sale) and back in (long-term purchase) in equal measure, leaving the monetary base unchanged.  The goal is to flatten the yield curve — pushing down long-term rates — without creating new money.  The Fed conducted this as the *Maturity Extension Program* in 2011–2012.
+
+- *Reverse repos as a drain*: After an asset purchase that injects reserves, the Fed can temporarily absorb those reserves by entering into reverse repurchase agreements (reverse repos), in which counterparties lend cash to the Fed overnight in exchange for collateral.  This leaves the money supply temporarily unchanged while the OMO is in effect.
+
+- *Term Deposit Facility*: The Fed can offer banks interest-bearing term deposits, locking up reserves for a defined period and preventing them from being lent out.  This was set up after the financial crisis as a potential sterilization tool.
+
+**** Why Sterilization May Not Work
+
+Even a well-designed sterilized operation faces limits:
+
+1. *Portfolio rebalancing effect*: When the Fed buys long-term bonds and holds the monetary base constant, it reduces the supply of those bonds available to private investors.  Those investors then chase other assets — corporate bonds, equities, foreign securities — bidding up prices and lowering yields across the board.  The portfolio rebalancing channel transmits the effect of the OMO to financial conditions broadly, even without any change in the money supply.
+
+2. *Signaling effect*: Any large-scale OMO signals information about the Fed's intentions and outlook.  If markets interpret a sterilized purchase as a signal that rates will stay low longer, expectations will shift and longer-term rates will fall regardless of what happens to M2.
+
+3. *Velocity is not constant*: The quantity theory of money, $MV = PY$, assumes that if $M$ is held constant, $P$ and $Y$ cannot be affected.  But velocity $V$ — how quickly money turns over — is not constant.  If the OMO raises confidence or lowers uncertainty, velocity can increase even with an unchanged money supply, boosting nominal spending.
+
+4. *Loans create deposits (the endogeneity of money)*: The textbook money multiplier treats reserves as the binding constraint on bank lending.  In practice, creditworthy loan demand drives lending, and banks acquire reserves afterwards.  If banks are already flush with excess reserves (as they were after 2008), further reserve injections may simply sit idle rather than multiplying through the economy, making the sterilization question moot.
+
+5. *Commitment and credibility*: To keep the monetary base truly unchanged, the Fed must execute the offsetting drain flawlessly and credibly.  If markets doubt the drain will occur (or be sustained), they may act as if the OMO is unsterilized.  Coordination failures between the asset purchase and the drain can also leave temporary imbalances in reserves.
+
+** The Discount Rate
+
+The *discount rate* is the interest rate at which eligible depository institutions can borrow directly from the Fed through the *discount window*.  Three tiers exist:
+
+- *Primary Credit*: Available to financially sound banks at the primary credit rate, typically set 50 basis points above the top of the federal funds target range.
+- *Secondary Credit*: For institutions that do not qualify for primary credit; rate set higher than the primary rate.
+- *Seasonal Credit*: For smaller institutions with predictable seasonal funding needs (e.g., agricultural banks).
+
+Because the primary credit rate is above the federal funds target and because discount window borrowing is publicly disclosed in aggregate data with a two-year lag, banks historically have avoided using it except in emergencies — a phenomenon called *discount window stigma*.
+
+** Reserve Requirements
+
+Reserve requirements specify the minimum fraction of deposits that banks must hold as reserves.  In March 2020 the Fed permanently reduced reserve requirements to *zero* for all depository institutions.
+
+Although reserve requirements no longer bind as an active policy instrument, they were historically central to the *money multiplier* model linking the monetary base to the broader money supply (M1, M2).  Understanding reserve requirements is still important context for how the banking system creates money through lending.
+
+** Interest on Reserve Balances
+
+As discussed above, IORB is now the Fed's primary rate-control mechanism.  The FOMC sets the IORB rate in tandem with the federal funds target range to ensure money market rates remain well within the target band.
+
+* The Taylor Rule
+
+The *Taylor Rule*, introduced by Stanford economist John Taylor in 1993, gives a simple prescription for the federal funds rate based on observable economic conditions:
+
+\[ r_t = r^* + \pi_t + 0.5\,(\pi_t - \pi^*) + 0.5\,(y_t - y_t^*) \]
+
+Where:
+- $r_t$ = recommended nominal federal funds rate
+- $r^*$ = neutral real interest rate (often assumed to be 2%)
+- $\pi_t$ = current inflation rate (PCE or CPI)
+- $\pi^*$ = inflation target (2%)
+- $y_t - y_t^*$ = output gap (actual minus potential GDP as a % of potential)
+
+The rule implies the Fed should:
+- *Raise* rates when inflation exceeds its target or output exceeds potential (overheating economy).
+- *Lower* rates when inflation is below target or output is below potential (slack economy).
+
+The coefficient of 1.5 on inflation (= 1 + 0.5) satisfies the *Taylor Principle*: the nominal rate must rise by more than one-for-one with inflation to ensure the real rate rises and actually restrains demand.
+
+The Taylor Rule has been influential as a *benchmark* for policy evaluation.  Deviations from the rule are regularly debated: many economists argued the Fed held rates too low in the mid-2000s (contributing to the housing bubble) and again in 2021–2022 (contributing to the inflation surge).
 
 * Calculating the Correlation between the Fed Funds Rate and Inflation
 
-The first question to ask is, if the FOMC does it job well, what /should/ the correlation be?  
+The first question to ask is, if the FOMC does its job well, what /should/ the correlation be?
+
+If the FOMC is purely *reactive* — raising rates only after inflation has already risen — we expect a positive contemporaneous correlation between the federal funds rate and the CPI inflation rate.
+
+If the FOMC is *preemptive* — raising rates in anticipation of future inflation — we expect the federal funds rate today to be positively correlated with /future/ inflation (equivalently, the current inflation rate should be correlated with /past/ federal funds rates).
+
+There is also a *success paradox*: a perfectly credible central bank that always hits its inflation target would generate data in which inflation barely varies, making the correlation between the fed funds rate and inflation appear small — not because policy is irrelevant but because it works so well.
+
+** Empirical Exercise
+
+Download the following FRED series and compute correlations:
+- =FEDFUNDS=: Effective Federal Funds Rate (monthly, %)
+- =CPIAUCSL=: Consumer Price Index, All Urban Consumers (monthly, index)
+  - Compute year-over-year % change to get the inflation rate: $\pi_t = \frac{CPI_t - CPI_{t-12}}{CPI_{t-12}} \times 100$
+
+Then calculate:
+1. *Contemporaneous correlation*: $\text{cor}(r_t,\, \pi_t)$ — does the Fed react to current inflation?
+2. *Lagged correlation*: $\text{cor}(r_t,\, \pi_{t-k})$ for $k = 3, 6, 12$ months — does the Fed react to past inflation?
+3. *Lead correlation*: $\text{cor}(r_t,\, \pi_{t+k})$ — does the Fed predict future inflation?
+
+Plotting these correlations against the lag $k$ produces a *cross-correlogram* that reveals the timing of the Fed's response to inflation.
+
+* Quantitative Easing and Unconventional Monetary Policy
+
+When the federal funds rate reaches zero — the *zero lower bound* (ZLB) — the FOMC loses its primary conventional tool.  Standard rate cuts are no longer possible.  The Fed has responded with several unconventional tools.
+
+** Quantitative Easing
+
+*Quantitative easing* (QE) involves large-scale purchases of longer-maturity securities — U.S. Treasuries and agency mortgage-backed securities — to push down long-term interest rates.  Whereas conventional OMOs target the overnight rate, QE aims to shift the entire yield curve downward by reducing the term premium on longer-dated bonds.
+
+The Fed launched major QE programs in response to:
+- The 2007–2009 Financial Crisis (QE1, QE2, QE3: 2008–2014)
+- The COVID-19 pandemic (QE4: 2020–2022)
+
+At its peak in 2022, the Fed's balance sheet exceeded $9 trillion — up from roughly $900 billion before the financial crisis.
+
+** Forward Guidance
+
+*Forward guidance* is the FOMC's use of public communication to shape expectations about the future path of the federal funds rate.  Because long-term interest rates reflect expected future short-term rates, committing credibly to keep rates low for an extended period pushes down longer-term rates today without any change in the current policy rate.
+
+Two forms:
+- *Calendar-based*: "We expect to maintain rates near zero through at least mid-2013."
+- *State-contingent*: "Rates will remain near zero until unemployment falls below 6.5% /and/ inflation is projected to remain below 2.5%."
+
+State-contingent guidance is generally considered more credible because the commitment is tied to observable economic outcomes rather than a calendar date that might be revised.
+
+** Quantitative Tightening
+
+The reverse of QE, *quantitative tightening* (QT) reduces the size of the Fed's balance sheet.  This can be done passively — by allowing maturing securities to roll off without reinvestment — or actively by selling securities outright.
+
+The Fed conducted QT in 2017–2019, then began a new round in June 2022 as it sought to unwind the pandemic-era balance sheet expansion and tighten financial conditions to combat inflation.  Unlike conventional rate hikes, the effects of QT on longer-term yields and financial conditions are less well understood, making it a more uncertain instrument.
